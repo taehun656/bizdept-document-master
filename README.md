@@ -18,12 +18,35 @@ bash -c 'workdir=$(mktemp -d); git clone --depth 1 https://github.com/taehun656/
 $bizdept-document-master 사업부 폴더의 결재 PDF와 첨부파일을 분석하고, 일일업무보고를 HWPX와 DOCX로 만들어줘.
 ```
 
+문서 주제와 템플릿을 화면에서 직접 고르려면 다음처럼 요청합니다.
+
+```text
+$bizdept-document-master UI로 새 문서 설정부터 시작해줘.
+```
+
+로컬 브라우저에 문서 설정 화면이 열리며, 왼쪽에서 결과 구성을 미리 보고 오른쪽에서 다음 항목을 선택할 수 있습니다.
+
+- 문서 제목, 목적, 보고 대상
+- 사업부 표준 템플릿 6종 또는 기존 HWPX·DOCX 양식
+- 문장 스타일과 정보 밀도
+- HWPX·DOCX 출력 형식
+- 결재 PDF, 첨부 근거, 계산자료 등 원시파일
+
+`이 설정으로 문서 만들기`를 누르면 선택 내용은 작업 폴더의 `spec/ui-selection.json`에 저장되고, 첨부파일은 `sources/` 아래에 복사됩니다. 그전에는 원본 파일을 복사하지 않습니다. 이후 Codex가 이 설정을 기준으로 원시자료를 분석하고 문서를 생성합니다.
+
+설치된 스킬의 UI만 직접 실행할 수도 있습니다.
+
+```bash
+node "${CODEX_HOME:-$HOME/.codex}/skills/bizdept-document-master/scripts/document-ui/server.mjs" "/path/to/document-project"
+```
+
 ## 포함되는 기능
 
 - PDF·HWP·HWPX·DOCX·XLSX 파싱과 신규 HWPX 생성
 - 기존 HWPX 양식의 구조·쪽수 보존 편집
 - 한국어 보고서와 공문 문장 교정
 - 사업부 업무 유형별 6개 본문 템플릿과 공통 결재표지
+- 문서 주제·템플릿·스타일·첨부를 선택하는 로컬 브라우저 UI
 - HWPX 구조·내용·렌더 검증과 DOCX 시각 검증 절차
 
 DOCX 생성은 Codex에 기본 제공되는 `documents` 시스템 스킬을 사용합니다. 바이너리 `.hwp` 파일은 생성하거나 직접 편집하지 않으며, 한글 편집 산출물은 `.hwpx`로 만듭니다.

@@ -2,3 +2,5 @@
 vendor/
 qa/
 outputs/
+output/
+.playwright-cli/

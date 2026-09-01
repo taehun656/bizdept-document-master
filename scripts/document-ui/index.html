@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>사업부 문서 설정</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" type="module"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-lockup">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6 3.5h8l4 4V20.5H6z"/><path d="M14 3.5v4h4M9 12h6M9 15.5h6"/></svg>
+          </span>
+          <div>
+            <p class="eyebrow">BIZDEPT DOCUMENT MASTER</p>
+            <h1>문서 작업 설정</h1>
+          </div>
+        </div>
+        <p class="topbar-hint">주제와 양식을 정하면 같은 기준으로 HWPX와 Word 문서를 만듭니다.</p>
+      </header>
+
+      <main class="workspace">
+        <section class="preview-pane" aria-labelledby="preview-title">
+          <div class="pane-heading">
+            <div>
+              <p class="step-label">LIVE PREVIEW</p>
+              <h2 id="preview-title">결재 문서 구성</h2>
+            </div>
+            <span class="status-tag" id="previewFormat">HWPX + DOCX</span>
+          </div>
+
+          <div class="paper-wrap">
+            <article class="paper" aria-live="polite">
+              <header class="paper-header">
+                <span class="paper-scope" id="previewScope">[공통]</span>
+                <span class="paper-type" id="previewTemplate">일일·주간 업무현황</span>
+              </header>
+              <h3 id="previewTopic">문서 주제를 입력하세요</h3>
+              <p class="paper-purpose" id="previewPurpose">작성 목적을 입력하면 결재자가 먼저 읽을 요약으로 반영됩니다.</p>
+
+              <dl class="paper-meta">
+                <div><dt>보고 대상</dt><dd id="previewAudience">사업부장</dd></div>
+                <div><dt>문장 스타일</dt><dd id="previewTone">표준 보고형</dd></div>
+                <div><dt>문서 구성</dt><dd id="previewDensity">표준형</dd></div>
+              </dl>
+
+              <section class="decision-box">
+                <span>결재 요약</span>
+                <p>핵심 사실, 영향, 시행일, 의사결정 요청을 문서 첫 부분에 배치합니다.</p>
+              </section>
+
+              <ol class="paper-outline" id="previewOutline"></ol>
+
+              <footer class="paper-footer">
+                <span>첨부 근거 연결</span>
+                <span id="previewFileCount">첨부 예정 0건</span>
+              </footer>
+            </article>
+          </div>
+        </section>
+
+        <section class="settings-pane" aria-labelledby="settings-title">
+          <div class="pane-heading settings-heading">
+            <div>
+              <p class="step-label">SETUP</p>
+              <h2 id="settings-title">무엇을 작성할까요?</h2>
+            </div>
+            <span class="project-name" id="projectName">프로젝트 확인 중</span>
+          </div>
+
+          <form id="documentForm" novalidate>
+            <section class="form-section" aria-labelledby="topic-heading">
+              <div class="section-number">01</div>
+              <div class="section-body">
+                <h3 id="topic-heading">문서 주제</h3>
+                <p class="section-help">제목과 목적만 명확하면 나머지 구조는 선택한 템플릿이 안내합니다.</p>
+
+                <div class="field-grid scope-title-grid">
+                  <label class="field compact-field">
+                    <span>범위</span>
+                    <select id="scope" name="scope">
+                      <option value="공통">공통</option>
+                      <option value="충남">충남</option>
+                      <option value="한양">한양</option>
+                    </select>
+                  </label>
+                  <label class="field">
+                    <span>문서 제목 <strong aria-hidden="true">필수</strong></span>
+                    <input id="topic" name="topic" type="text" maxlength="200" required placeholder="예: 2026년 9월 노선 변경 검토 보고">
+                  </label>
+                </div>
+
+                <label class="field">
+                  <span>작성 목적 <strong aria-hidden="true">필수</strong></span>
+                  <textarea id="purpose" name="purpose" rows="3" maxlength="2000" required placeholder="예: 노선 변경안의 운영 영향과 시행 여부를 검토받기 위함"></textarea>
+                </label>
+
+                <div class="field-grid">
+                  <label class="field">
+                    <span>보고 대상</span>
+                    <input id="audience" name="audience" type="text" maxlength="200" value="사업부장" required>
+                  </label>
+                  <label class="field">
+                    <span>추가 지시</span>
+                    <input id="notes" name="notes" type="text" maxlength="4000" placeholder="예: 비용과 리스크를 먼저 제시">
+                  </label>
+                </div>
+              </div>
+            </section>
+
+            <section class="form-section" aria-labelledby="template-heading">
+              <div class="section-number">02</div>
+              <div class="section-body">
+                <h3 id="template-heading">업무 템플릿</h3>
+                <p class="section-help">업무 성격과 가장 가까운 유형을 고르세요. 기존 양식 파일도 기준으로 사용할 수 있습니다.</p>
+                <fieldset class="choice-fieldset">
+                  <legend class="sr-only">업무 템플릿 선택</legend>
+                  <div class="template-grid" id="templateGrid" aria-live="polite"></div>
+                </fieldset>
+
+                <div class="reference-upload" id="referenceUpload" hidden>
+                  <label class="upload-box" for="templateFiles">
+                    <span class="upload-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M12 16V4M7.5 8.5 12 4l4.5 4.5M5 14v5h14v-5"/></svg>
+                    </span>
+                    <span><strong>기존 HWPX 또는 DOCX 양식 선택</strong><small>본문 구조와 시각 형식을 참조합니다.</small></span>
+                    <input id="templateFiles" type="file" accept=".hwpx,.docx">
+                  </label>
+                  <ul class="file-list" id="templateFileList"></ul>
+                </div>
+              </div>
+            </section>
+
+            <section class="form-section" aria-labelledby="style-heading">
+              <div class="section-number">03</div>
+              <div class="section-body">
+                <h3 id="style-heading">작성 스타일과 출력 형식</h3>
+                <p class="section-help">문장 톤과 정보 밀도를 정하면 HWPX와 Word에 동일하게 적용합니다.</p>
+
+                <fieldset class="choice-fieldset">
+                  <legend>문장 스타일</legend>
+                  <div class="segmented-options">
+                    <label><input type="radio" name="tone" value="concise"><span><b>간결 결재형</b><small>결론과 요청 우선</small></span></label>
+                    <label><input type="radio" name="tone" value="standard" checked><span><b>표준 보고형</b><small>사실·검토·결론 균형</small></span></label>
+                    <label><input type="radio" name="tone" value="explanatory"><span><b>설명 강화형</b><small>배경과 근거를 상세히</small></span></label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="choice-fieldset">
+                  <legend>문서 구성</legend>
+                  <div class="segmented-options">
+                    <label><input type="radio" name="density" value="one-page"><span><b>1쪽 요약형</b><small>결재 판단에 집중</small></span></label>
+                    <label><input type="radio" name="density" value="standard" checked><span><b>표준형</b><small>본문과 첨부 균형</small></span></label>
+                    <label><input type="radio" name="density" value="evidence-heavy"><span><b>근거 상세형</b><small>표·계산·변경 비교 강화</small></span></label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="choice-fieldset">
+                  <legend>출력 형식</legend>
+                  <div class="output-options">
+                    <label><input type="checkbox" name="output" value="hwpx" checked><span><b>HWPX</b><small>한글 편집용</small></span></label>
+                    <label><input type="checkbox" name="output" value="docx" checked><span><b>DOCX</b><small>Word 편집용</small></span></label>
+                  </div>
+                </fieldset>
+              </div>
+            </section>
+
+            <section class="form-section" aria-labelledby="material-heading">
+              <div class="section-number">04</div>
+              <div class="section-body">
+                <h3 id="material-heading">원시자료와 첨부</h3>
+                <p class="section-help">PDF 결재문서, 첨부 근거, 표 계산자료를 함께 올리면 문서 내용에 반영합니다.</p>
+                <label class="upload-box" for="sourceFiles">
+                  <span class="upload-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M12 16V4M7.5 8.5 12 4l4.5 4.5M5 14v5h14v-5"/></svg>
+                  </span>
+                  <span><strong>파일을 놓거나 찾아보기</strong><small>PDF, HWPX, HWP, DOCX, XLSX, CSV, TXT · 파일당 최대 50MB</small></span>
+                  <input id="sourceFiles" type="file" multiple accept=".pdf,.hwp,.hwpx,.docx,.xlsx,.xls,.csv,.txt,.md">
+                </label>
+                <ul class="file-list" id="sourceFileList"></ul>
+              </div>
+            </section>
+
+            <div class="action-area">
+              <div class="action-copy">
+                <strong>설정이 끝났습니다.</strong>
+                <span id="actionSummary">HWPX와 DOCX 문서 생성을 준비합니다.</span>
+              </div>
+              <button class="primary-button" id="confirmButton" type="submit">
+                <span>이 설정으로 문서 만들기</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+              </button>
+              <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+
+          <section class="success-panel" id="successPanel" hidden aria-live="polite">
+            <span class="success-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="m5 12.5 4 4L19 7"/></svg>
+            </span>
+            <p class="step-label">CONFIRMED</p>
+            <h2 tabindex="-1">문서 설정을 저장했습니다.</h2>
+            <p><code>spec/ui-selection.json</code>을 기준으로 문서 생성 작업을 계속합니다. 이 창을 닫고 대화로 돌아가세요.</p>
+          </section>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

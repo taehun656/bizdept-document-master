@@ -44,6 +44,7 @@ tar -C "${SOURCE_ROOT}" \
   --exclude='vendor' \
   --exclude='qa' \
   --exclude='outputs' \
+  --exclude='.omo' \
   --exclude='.debug-journal.md' \
   -cf - . | tar -C "${STAGING_SKILL}" -xf -
 mkdir -p "${STAGING_SKILL}/vendor/kordoc" "${STAGING_SKILL}/vendor/hwpx" "${STAGING_SKILL}/vendor/fluent-korean"
@@ -75,7 +76,7 @@ fetch_checkout "${FLUENT_REPOSITORY}" "${FLUENT_COMMIT}" "${FLUENT_CHECKOUT}"
 cp "${FLUENT_CHECKOUT}/plugins/fluent-korean/output-styles/fluent-korean.md" "${STAGING_SKILL}/vendor/fluent-korean/fluent-korean.md"
 cp "${FLUENT_CHECKOUT}/LICENSE" "${STAGING_SKILL}/vendor/fluent-korean/LICENSE"
 
-chmod +x "${STAGING_SKILL}/scripts/install.sh" "${STAGING_SKILL}/scripts/doctor.sh" "${STAGING_SKILL}/scripts/run-kordoc.sh" "${STAGING_SKILL}/scripts/run-hwpx.sh"
+chmod +x "${STAGING_SKILL}/scripts/install.sh" "${STAGING_SKILL}/scripts/doctor.sh" "${STAGING_SKILL}/scripts/run-kordoc.sh" "${STAGING_SKILL}/scripts/run-hwpx.sh" "${STAGING_SKILL}/scripts/document-ui/server.mjs"
 "${STAGING_SKILL}/scripts/doctor.sh"
 
 mkdir -p "${INSTALL_BASE}"

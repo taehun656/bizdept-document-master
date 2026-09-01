@@ -3,31 +3,49 @@
   "templates": {
     "daily-work-report": {
       "body": "templates/daily-work-report.md",
+      "label": "일일·주간 업무현황",
+      "summary": "업무 진행상황, 다음 일정, 이슈와 지원 요청을 정기적으로 공유합니다.",
+      "outline": ["핵심 업무 요약", "진행 및 예정 사항", "이슈·지원 요청", "첨부 근거"],
       "hwpx_preset": "보고서",
       "word_preset": "standard_business_brief"
     },
     "route-license-report": {
       "body": "templates/route-license-report.md",
+      "label": "노선·인허가 검토",
+      "summary": "노선 변경, 운임, 운송개시, 신고와 인허가 사항을 변경 전후로 검토합니다.",
+      "outline": ["추진 배경", "변경 전후 비교", "인허가 검토", "시행 영향"],
       "hwpx_preset": "보고서",
       "word_preset": "standard_business_brief"
     },
     "complaint-external-response": {
       "body": "templates/complaint-external-response.md",
+      "label": "민원·대외 회신",
+      "summary": "민원 사실관계와 검토 의견을 정리하고 기관 또는 민원인 회신안을 작성합니다.",
+      "outline": ["요청 내용", "사실관계", "검토 의견", "회신 및 조치안"],
       "hwpx_preset": "기안문",
       "word_preset": "standard_business_brief"
     },
     "contract-facility-approval": {
       "body": "templates/contract-facility-approval.md",
+      "label": "계약·시설 결재",
+      "summary": "계약 체결·변경, 시설, 임차와 용역 조건의 비용·위험·요청사항을 정리합니다.",
+      "outline": ["계약 개요", "주요 조건", "비용·위험", "결재 요청"],
       "hwpx_preset": "기안문",
       "word_preset": "contract_negotiation_brief"
     },
     "finance-data-report": {
       "body": "templates/finance-data-report.md",
+      "label": "손익·재정·데이터",
+      "summary": "계통별 손익, 정산, 지원금과 데이터 제출 내용을 수치 근거 중심으로 보고합니다.",
+      "outline": ["분석 기준", "핵심 수치", "증감 원인", "결론·제출 항목"],
       "hwpx_preset": "보고서",
       "word_preset": "standard_business_brief"
     },
     "field-operations-change": {
       "body": "templates/field-operations-change.md",
+      "label": "현장 운영 변경",
+      "summary": "배차, 차량, 터미널과 현장 운행 변경의 시행 내용과 운영 영향을 보고합니다.",
+      "outline": ["변경 개요", "변경 전후", "현장 영향", "시행 계획"],
       "hwpx_preset": "보고서",
       "word_preset": "standard_business_brief"
     }

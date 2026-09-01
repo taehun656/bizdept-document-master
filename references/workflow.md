@@ -4,8 +4,12 @@
 
 ```text
 <project>/
-├── sources/                  원본과 파싱 결과
+├── sources/
+│   ├── uploads/              UI에서 확정한 원시자료
+│   ├── reference/            사용자가 선택한 기존 양식
+│   └── source_summary.md     파싱 결과 요약
 ├── spec/
+│   ├── ui-selection.json     UI에서 확정한 주제·템플릿·스타일
 │   ├── document_spec.md      사람이 검토하는 문서 계획
 │   └── spec_lock.yaml        생성기가 따르는 잠금 값
 ├── draft/
@@ -13,6 +17,8 @@
 ├── outputs/                  최종 산출물만 저장
 └── qa/                       렌더, 추출문, 검사 결과
 ```
+
+`ui-selection.json`이 있으면 그 값을 사용자 확인이 끝난 설정으로 취급한다. `document_spec.md`와 `spec_lock.yaml`은 이 파일을 그대로 복사하지 않고 원시자료 분석 결과, 필수 결재 필드, 선택한 템플릿 프리셋을 합쳐 정규화한다. UI에서 선택한 제목·템플릿·스타일·출력 형식은 원천자료만으로 임의 변경하지 않는다.
 
 ## document_spec.md
 
