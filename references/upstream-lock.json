@@ -1,0 +1,21 @@
+{
+  "kordoc": {
+    "repository": "https://github.com/taehun656/kordoc.git",
+    "commit": "7861d5c4d1cf95b8b70da9b52ce196b9bafa4a2f",
+    "runtime": "kordoc@4.12.0",
+    "license": "MIT"
+  },
+  "hwpx": {
+    "repository": "https://github.com/Canine89/hwpxskill.git",
+    "commit": "cb5f25b6557b47b0339398d3b5d45a57bdcb4b28",
+    "license": "No license file found; fetched from the original repository during installation and not redistributed in this repository"
+  },
+  "fluent_korean": {
+    "repository": "https://github.com/snflkd/fluent-korean.git",
+    "commit": "ce8683f0eba8cddb91de4dcd151425ff73e60498",
+    "license": "MIT"
+  },
+  "python_dependencies": {
+    "lxml": "6.0.1"
+  }
+}

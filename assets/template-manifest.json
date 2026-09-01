@@ -1,0 +1,35 @@
+{
+  "common_cover": "templates/common-approval-cover.md",
+  "templates": {
+    "daily-work-report": {
+      "body": "templates/daily-work-report.md",
+      "hwpx_preset": "보고서",
+      "word_preset": "standard_business_brief"
+    },
+    "route-license-report": {
+      "body": "templates/route-license-report.md",
+      "hwpx_preset": "보고서",
+      "word_preset": "standard_business_brief"
+    },
+    "complaint-external-response": {
+      "body": "templates/complaint-external-response.md",
+      "hwpx_preset": "기안문",
+      "word_preset": "standard_business_brief"
+    },
+    "contract-facility-approval": {
+      "body": "templates/contract-facility-approval.md",
+      "hwpx_preset": "기안문",
+      "word_preset": "contract_negotiation_brief"
+    },
+    "finance-data-report": {
+      "body": "templates/finance-data-report.md",
+      "hwpx_preset": "보고서",
+      "word_preset": "standard_business_brief"
+    },
+    "field-operations-change": {
+      "body": "templates/field-operations-change.md",
+      "hwpx_preset": "보고서",
+      "word_preset": "standard_business_brief"
+    }
+  }
+}
