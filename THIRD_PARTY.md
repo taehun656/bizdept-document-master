@@ -7,7 +7,7 @@
 - Runtime: `kordoc@4.12.0`
 - License: MIT
 
-The installer copies the upstream skill instructions, license, and notice and installs the published npm package inside the resulting skill folder.
+The installer copies the upstream license and notice and installs the published npm package inside the resulting skill folder. Runtime usage is documented by this repository's integrated instructions so that it stays aligned with the pinned CLI version.
 
 ## hwpxskill
 

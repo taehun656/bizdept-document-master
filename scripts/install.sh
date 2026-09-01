@@ -61,7 +61,6 @@ fetch_checkout() {
 
 KORDOC_CHECKOUT="${STAGING_ROOT}/kordoc"
 fetch_checkout "${KORDOC_REPOSITORY}" "${KORDOC_COMMIT}" "${KORDOC_CHECKOUT}"
-cp "${KORDOC_CHECKOUT}/plugins/kordoc/skills/kordoc/SKILL.md" "${STAGING_SKILL}/vendor/kordoc/SKILL.md"
 cp "${KORDOC_CHECKOUT}/LICENSE" "${STAGING_SKILL}/vendor/kordoc/LICENSE"
 cp "${KORDOC_CHECKOUT}/NOTICE" "${STAGING_SKILL}/vendor/kordoc/NOTICE"
 npm install --prefix "${STAGING_SKILL}/vendor/kordoc/runtime" --omit=dev --ignore-scripts --no-audit --no-fund "kordoc@${KORDOC_VERSION}"
